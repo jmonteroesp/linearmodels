@@ -233,12 +233,7 @@ def test_clustered_direct(cov_data, debias):
         clusters=np.arange(eps.shape[0]),
     )
     hetero = HeteroskedasticCovariance(
-        x,
-        eps,
-        sigma,
-        sigma,
-        gls=False,
-        debiased=debias,
+        x, eps, sigma, sigma, gls=False, debiased=debias,
     )
     assert_allclose(clustered.cov, hetero.cov)
 
@@ -279,35 +274,17 @@ def test_clustered_error(cov_data, debias):
     clusters[:, 1] = np.arange(nobs) % 40
     with pytest.raises(ValueError, match="clusters must be non-nested"):
         ClusteredCovariance(
-            x,
-            eps,
-            sigma,
-            sigma,
-            gls=False,
-            debiased=debias,
-            clusters=clusters,
+            x, eps, sigma, sigma, gls=False, debiased=debias, clusters=clusters,
         )
     clusters = np.ones((nobs, 3))
     with pytest.raises(ValueError, match="clusters must be an ndarray"):
         ClusteredCovariance(
-            x,
-            eps,
-            sigma,
-            sigma,
-            gls=False,
-            debiased=debias,
-            clusters=clusters,
+            x, eps, sigma, sigma, gls=False, debiased=debias, clusters=clusters,
         )
     clusters = np.ones((nobs, 2, 2))
     with pytest.raises(ValueError, match="clusters must be an ndarray"):
         ClusteredCovariance(
-            x,
-            eps,
-            sigma,
-            sigma,
-            gls=False,
-            debiased=debias,
-            clusters=clusters,
+            x, eps, sigma, sigma, gls=False, debiased=debias, clusters=clusters,
         )
 
 

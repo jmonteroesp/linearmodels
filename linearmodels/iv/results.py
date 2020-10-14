@@ -483,9 +483,7 @@ class OLSResults(_LSModelResultsBase):
     """
 
     def __init__(
-        self,
-        results: Dict[str, Any],
-        model: "linearmodels.iv.model._IVModelBase",
+        self, results: Dict[str, Any], model: "linearmodels.iv.model._IVModelBase",
     ) -> None:
         super().__init__(results, model)
 
@@ -859,9 +857,7 @@ class _CommonIVResults(OLSResults):
     """
 
     def __init__(
-        self,
-        results: Dict[str, Any],
-        model: "linearmodels.iv.model._IVModelBase",
+        self, results: Dict[str, Any], model: "linearmodels.iv.model._IVModelBase",
     ) -> None:
         super().__init__(results, model)
         self._liml_kappa = results.get("liml_kappa", None)
